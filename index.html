@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inland Roleplay | Law Enforcement Portal</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap');
+
+        :root {
+            --bg: #050505;
+            --card-bg: #111111;
+            --accent-blue: #007bff;
+            --accent-gold: #d4af37;
+            --text-main: #e0e0e0;
+            --glass: rgba(255, 255, 255, 0.03);
+            --border: rgba(255, 255, 255, 0.1);
+        }
+
+        * { box-sizing: border-box; scroll-behavior: smooth; }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            display: flex;
+            overflow-x: hidden;
+        }
+
+        /* Tactical Sidebar */
+        nav {
+            width: 280px;
+            height: 100vh;
+            background: #000;
+            border-right: 1px solid var(--border);
+            position: fixed;
+            display: flex;
+            flex-direction: column;
+            padding: 30px 20px;
+            z-index: 100;
+        }
+
+        .brand {
+            font-weight: 900;
+            font-size: 1.5rem;
+            letter-spacing: -1px;
+            margin-bottom: 50px;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .brand span { color: var(--accent-blue); }
+
+        nav a {
+            color: #888;
+            text-decoration: none;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            transition: 0.3s;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        nav a:hover, nav a.active {
+            background: var(--glass);
+            color: #fff;
+            border-left: 4px solid var(--accent-blue);
+        }
+
+        /* Main Content */
+        main {
+            margin-left: 280px;
+            width: calc(100% - 280px);
+            padding: 0;
+        }
+
+        .hero {
+            height: 450px;
+            background: linear-gradient(to bottom, rgba(5,5,5,0.4), var(--bg)), 
+                        url('https://images.unsplash.com/photo-1563089145-599997674d42?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: flex-end;
+            padding: 60px;
+        }
+
+        .hero-text h1 { font-size: 3.5rem; margin: 0; font-weight: 900; text-transform: uppercase; line-height: 1; }
+
+        .section { padding: 80px 60px; }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        /* Department Cards */
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            padding: 40px;
+            border-radius: 12px;
+            position: relative;
+            transition: 0.3s ease;
+        }
+
+        .card:hover { border-color: var(--accent-blue); transform: translateY(-5px); }
+
+        .dept-icon { font-size: 2.5rem; color: var(--accent-blue); margin-bottom: 20px; display: block; }
+
+        .badge-soon {
+            background: #ff4444;
+            color: white;
+            font-size: 0.7rem;
+            padding: 4px 10px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            font-weight: 900;
+            display: inline-block;
+            margin-bottom: 10px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+
+        .btn-main {
+            background: var(--accent-blue);
+            color: white;
+            padding: 16px 30px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 700;
+            display: inline-block;
+            transition: 0.3s;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            border: none;
+            margin-top: 20px;
+        }
+
+        /* Mobile Optimization */
+        @media (max-width: 900px) {
+            nav { width: 80px; padding: 20px 10px; }
+            nav a span, .brand span { display: none; }
+            main { margin-left: 80px; width: calc(100% - 80px); }
+            .hero-text h1 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="brand"><i class="fas fa-shield-halved"></i> <span>INLAND<span>RP</span></span></div>
+        <a href="#home" class="active"><i class="fas fa-home"></i> <span>Dashboard</span></a>
+        <a href="#departments"><i class="fas fa-building-shield"></i> <span>Departments</span></a>
+        <a href="#recruitment"><i class="fas fa-user-plus"></i> <span>Recruitment</span></a>
+        <a href="#codes"><i class="fas fa-book"></i> <span>Penal Code</span></a>
+    </nav>
+
+    <main id="home">
+        <div class="hero">
+            <div class="hero-text">
+                <p style="color: var(--accent-blue); font-weight: 700; letter-spacing: 3px; text-shadow: 0 0 10px rgba(0,123,255,0.5);">PUBLIC SAFETY PORTAL</p>
+                <h1>INLAND ROLEPLAY</h1>
+            </div>
+        </div>
+<div class="section" id="codes">
+    <h2 class="section-title">TACTICAL CODE SEARCH</h2>
+    <div class="search-container">
+        <i class="fas fa-search"></i>
+        <input type="text" id="codeSearch" placeholder="Search by number or keyword (e.g. '10-80')...">
+    </div>
+
+    <div class="grid" id="codeGrid">
+        <div class="card code-item" data-code="10-4" data-desc="Acknowledge">
+            <span class="code-num blue">10-4</span>
+            <p>Message Received / OK</p>
+        </div>
+        <div class="card code-item" data-code="10-7" data-desc="Out of Service">
+            <span class="code-num red">10-7</span>
+            <p>Out of Service (Off-Duty)</p>
+        </div>
+        <div class="card code-item" data-code="10-8" data-desc="In Service">
+            <span class="code-num green">10-8</span>
+            <p>In Service (On-Duty)</p>
+        </div>
+        <div class="card code-item" data-code="10-20" data-desc="Location">
+            <span class="code-num gold">10-20</span>
+            <p>Current Location</p>
+        </div>
+        <div class="card code-item" data-code="10-80" data-desc="Pursuit">
+            <span class="code-num blue">10-80</span>
+            <p>High Speed Pursuit</p>
+        </div>
+        <div class="card code-item" data-code="10-99" data-desc="Officer Down">
+            <span class="code-num red pulse">10-99</span>
+            <p>Officer Down / Emergency</p>
+        </div>
+    </div>
+</div>
+        <div class="section" id="departments">
+            <h2 style="font-size: 2rem; font-weight: 900; letter-spacing: -1px; margin-bottom: 40px;">ACTIVE DEPARTMENTS</h2>
+            <div class="grid">
+                <div class="card">
+                    <i class="fas fa-star dept-icon" style="color: var(--accent-gold);"></i>
+                    <h3>San Bernardino County Sheriff</h3>
+                    <p>Patrolling the vast unincorporated areas and contract cities of San Bernardino County with professional excellence.</p>
+                    <a href="#recruitment" class="btn-main">View Details</a>
+                </div>
+
+                <div class="card">
+                    <i class="fas fa-shield-heart dept-icon"></i>
+                    <h3>California Highway Patrol</h3>
+                    <p>Safety, Service, and Security on the highways of Inland California. Join the state's most elite traffic units.</p>
+                    <a href="#recruitment" class="btn-main">View Details</a>
+                </div>
+
+                <div class="card" style="opacity: 0.7;">
+                    <span class="badge-soon">Coming Soon</span>
+                    <i class="fas fa-city dept-icon" style="color: #666;"></i>
+                    <h3>San Bernardino Police Department</h3>
+                    <p>Urban policing operations serving the heart of the city. Currently undergoing administrative setup.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section" id="recruitment" style="background: #080808;">
+            <div class="card" style="max-width: 900px; margin: 0 auto; border: 1px solid var(--accent-blue); text-align: center;">
+                <h2 style="font-size: 2rem;">ENLIST TODAY</h2>
+                <p style="opacity: 0.8; max-width: 600px; margin: 0 auto 30px;">Choose your path. Whether it's the County, the Highway, or the City—Inland RP offers the most immersive LEO experience.</p>
+                <div class="grid" style="text-align: left; margin-bottom: 40px;">
+                    <div style="background: var(--glass); padding: 20px; border-radius: 8px;">
+                        <i class="fas fa-user-clock" style="color: var(--accent-blue);"></i> 16+ Age Requirement
+                    </div>
+                    <div style="background: var(--glass); padding: 20px; border-radius: 8px;">
+                        <i class="fas fa-microphone" style="color: var(--accent-blue);"></i> High Quality Audio
+                    </div>
+                </div>
+                <a href="YOUR_GOOGLE_FORM_LINK" class="btn-main" style="padding: 20px 50px; font-size: 1rem;">Apply for Academy</a>
+            </div>
+        </div>
+
+        <footer style="padding: 40px; text-align: center; border-top: 1px solid var(--border); font-size: 0.7rem; opacity: 0.4; letter-spacing: 1px;">
+            &copy; 2026 INLAND ROLEPLAY LE PORTAL
+        </footer>
+    </main>
+
+</body>
+</html>
